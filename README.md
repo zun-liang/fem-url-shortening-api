@@ -53,7 +53,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [here](https://your-solution-url.com)
+- Solution URL: [here](https://www.frontendmentor.io/solutions/url-shortening-api-using-react-and-styledcomponents-1CmillSnIB)
 - Live Site URL: [here](https://zun-liang.github.io/url-shortening-api/)
 
 ## My process
