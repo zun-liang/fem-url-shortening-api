@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { useState } from "react"
 
-const Container = styled.div`
+const Container = styled.header`
     padding: 2rem 1.5rem 1rem;
     display: flex;
     flex-wrap: wrap;
