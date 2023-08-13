@@ -142,7 +142,7 @@ const Header = () => {
                     <List><A href="#">Features</A></List>
                     <List><A href="#">Pricing</A></List>
                     <List><A href="#">Resources</A></List>
-                    <Hr />
+                    <List><Hr /></List>
                     <List><A href="#">Login</A></List>
                     <ButtonLike><ButtonLikeA href="#">Sign Up</ButtonLikeA></ButtonLike>
                 </Ul>
