@@ -131,8 +131,6 @@ const Shortening = () => {
   const [input, setInput] = useState("");
   const handleChange = (e) => setInput(e.target.value);
 
-  const Regex =
-    /^(http(s):\/\/.)[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&//=]*)$/g;
   const [error, setError] = useState(null);
 
   const inputRef = useRef(null);
@@ -144,11 +142,7 @@ const Shortening = () => {
     setShorten((prev) => prev + 1);
     inputRef.current.focus();
     setButtonIndex(null);
-    if (Regex.test(input)) {
-      setError(null);
-    } else {
-      setError("Please add a link");
-    }
+    input === "" ? setError("Please add a link") : setError(null);
   };
 
   let localStorageArray = [];
@@ -164,7 +158,7 @@ const Shortening = () => {
     fetch(`https://api.shrtco.de/v2/shorten?url=${input}`)
       .then((res) => res.json())
       .then((data) => {
-        if (fetchWorking && !error) {
+        if (fetchWorking) {
           if (data.ok) {
             const itemId = data.result.code;
             const newStoredItem = {
@@ -176,7 +170,7 @@ const Shortening = () => {
             localStorage.setItem(`${itemId}`, JSON.stringify(newStoredItem));
             setInput("");
           } else if (!data.ok && data.error_code !== 1) {
-            setError(`Failed to shorten URL: "${data.disallowed_reason}"`);
+            setError(`Fail to shorten URL: "${data.error}"`);
           }
         }
       });
