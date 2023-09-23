@@ -131,6 +131,13 @@ Users should be able to:
 - [What’s The Difference Between Cache And Cookies](https://medium.com/techblogout/whats-the-difference-between-cache-and-cookies-53e7f4f094bb)
 - [shrtcode API Documentation](https://shrtco.de/docs)
 
+#### Testing Related
+
+- [Local Testing on an iPhone](https://www.joshwcomeau.com/blog/local-testing-on-an-iphone/)
+- [ngrok](https://ngrok.com/)
+
+  Installing on mac using homebrew works better for me.
+
 ## Author
 
 - Website - [Zun Liang](https://zun-liang.github.io/)
