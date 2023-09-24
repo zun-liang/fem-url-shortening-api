@@ -105,6 +105,13 @@ Users should be able to:
 
   Fixed this bug by setting body background colors to match header's and footer's.
 
+- [100vh problem with iOS Safari](https://417e-221-193-119-247.ngrok-free.app)
+
+  I have noticed many times that the projects I worked on before had difficulty completely scrolling up/down to the end on my iPhone. I did some research and found this bug is caused by "100vh". Then I found this article. In the updated code, I fixed this bug using the code provided in this article and it solved my problem!
+
+- [Document: documentElement property](https://developer.mozilla.org/en-US/docs/Web/API/Document/documentElement)
+- [CSSStyleDeclaration: setProperty() method](https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleDeclaration/setProperty)
+
 #### Javascript Related
 
 - [Check if an URL is valid or not using Regular Expression](https://www.geeksforgeeks.org/check-if-an-url-is-valid-or-not-using-regular-expression/)
