@@ -52,7 +52,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [here](https://www.frontendmentor.io/solutions/url-shortening-api-using-react-and-styledcomponents-1CmillSnIB)
-- Live Site URL: [here](https://zun-liang.github.io/url-shortening-api/)
+- Live Site URL: [here](https://zun-liang.github.io/fem-url-shortening-api/)
 
 ## My process
 
@@ -80,8 +80,8 @@ Users should be able to:
 
 #### Ways of React Data Fetching
 
-- axois
-- asynch/await
+- axios
+- async/await
 - useFetch
 - React Query
 
