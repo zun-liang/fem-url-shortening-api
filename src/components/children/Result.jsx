@@ -25,6 +25,7 @@ const IconClose = styled(IconCloseSvg)`
   transform: scale(0.8);
   align-self: flex-end;
   margin: 0 1rem -1rem 0;
+  cursor: pointer;
   @media (min-width: 800px) {
     align-self: start;
     justify-self: end;
@@ -108,7 +109,7 @@ const Result = ({
   setButtonIndex,
 }) => {
   const handleClose = (index) => {
-    localStorage.removeItem(`${storedItems[index].code}`);
+    localStorage.removeItem(`${storedItems[index].alias}`);
     const updatedStoredItems = storedItems.toSpliced(index, 1);
     setStoredItems(updatedStoredItems);
   };
@@ -123,7 +124,7 @@ const Result = ({
       {storedItems.map((item, index) => {
         if (item.originalLink !== "")
           return (
-            <ResultContainer key={item.code}>
+            <ResultContainer key={item.alias}>
               <IconClose
                 onClick={() => {
                   handleClose(index);

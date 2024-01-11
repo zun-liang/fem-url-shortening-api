@@ -136,7 +136,9 @@ Users should be able to:
 - [Local Storage vs Session Storage vs Cookie](https://www.xenonstack.com/insights/local-vs-session-storage-vs-cookie)
 - [Storage: key() method](https://developer.mozilla.org/en-US/docs/Web/API/Storage/key)
 - [What’s The Difference Between Cache And Cookies](https://medium.com/techblogout/whats-the-difference-between-cache-and-cookies-53e7f4f094bb)
-- [shrtcode API Documentation](https://shrtco.de/docs)
+- ~~[shrtcode API Documentation](https://shrtco.de/docs)~~ not working anymore
+- [TinyURL Development Document](https://tinyurl.com/app/dev)
+- [Public APIs TinyUrl](https://publicapis.io/tinyurl-api)
 
 #### Testing Related
 

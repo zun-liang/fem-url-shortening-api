@@ -1,11 +1,12 @@
+import { useEffect } from "react";
+import styled from "styled-components";
+
 import Boost from "./components/Boost";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Introduction from "./components/Introduction";
 import Shortening from "./components/Shortening";
 import Statistics from "./components/Statistics";
-import styled from "styled-components";
-import { useEffect } from "react";
 
 const AppContainer = styled.div`
   background-color: white;

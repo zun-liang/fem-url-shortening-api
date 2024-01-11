@@ -148,31 +148,59 @@ const Shortening = () => {
   let localStorageArray = [];
   for (let i = 0; i < localStorage.length; i++) {
     const key = localStorage.key(i);
-    const value = JSON.parse(localStorage.getItem(key));
-    localStorageArray.push(value);
+    if (key.startsWith("shortly-")) {
+      const value = JSON.parse(localStorage.getItem(key));
+      localStorageArray.push(value);
+    }
   }
   const [storedItems, setStoredItems] = useState([...localStorageArray]);
 
+  // eslint-disable-next-line no-undef
+  const apiKey = process.env.TINY_URL_API_KEY;
+  const url = "https://api.tinyurl.com/create";
+  const query = { url: input };
+
   useEffect(() => {
     let fetchWorking = true;
-    fetch(`https://api.shrtco.de/v2/shorten?url=${input}`)
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify(query),
+    })
       .then((res) => res.json())
       .then((data) => {
         if (fetchWorking) {
-          if (data.ok) {
-            const itemId = data.result.code;
-            const newStoredItem = {
-              code: itemId,
-              originalLink: data.result.original_link,
-              shortLink: data.result.full_short_link,
-            };
-            setStoredItems([newStoredItem, ...storedItems]);
-            localStorage.setItem(`${itemId}`, JSON.stringify(newStoredItem));
+          if (data.errors.length === 0) {
+            const itemId = data.data.alias;
+            if (localStorageArray.some((item) => item.alias === itemId)) {
+              setError("Fail to shorten URL: Duplicate URL.");
+            } else {
+              const newStoredItem = {
+                alias: itemId,
+                originalLink: data.data.url,
+                shortLink: data.data.tiny_url,
+              };
+              setStoredItems([newStoredItem, ...storedItems]);
+              localStorage.setItem(
+                `shortly-${itemId}`,
+                JSON.stringify(newStoredItem)
+              );
+            }
             setInput("");
-          } else if (!data.ok && data.error_code !== 1) {
-            setError(`Fail to shorten URL: "${data.error}"`);
+          } else if (
+            data.errors.length > 0 &&
+            data.errors[0] !== "The URL field is required."
+          ) {
+            setError(`Fail to shorten URL: "${data.errors[0]}"`);
+            throw new Error("Failed to shorten URL");
           }
         }
+      })
+      .catch((error) => {
+        console.error(error);
       });
     return () => (fetchWorking = false);
   }, [shorten]);
